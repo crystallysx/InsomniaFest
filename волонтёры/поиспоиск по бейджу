@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import org.openqa.selenium.Keys;
 
 public class Main {
     public static void main(String[] args) {
@@ -52,3 +53,13 @@ public class Main {
             e.printStackTrace();
         }
         button.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement find = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"__next\"]/section/section/main/div/div/div/div[2]/div/span/input")));
+        find.sendKeys("Белка");
+        find.sendKeys(Keys.RETURN);
+
+
+
+    }
+}
