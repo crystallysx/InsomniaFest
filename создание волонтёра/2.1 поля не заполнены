@@ -25,9 +25,8 @@ public class Main {
         driver.get("https://srv.rumyantsev.com/login");
 //задержка перед вводом значений
         try {
-            TimeUnit.SECONDS.sleep(3);}
-        catch (InterruptedException e)
-        {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 //ишу поле ввода логина и ввожу значения.
@@ -48,16 +47,24 @@ public class Main {
         WebElement button = driver.findElement(By.xpath("//*[@id=\"__next\"]/section/div/div/div/div[2]/div[2]/form/button"));
 // задержка перед нажатием на кнопку входа
         try {
-            TimeUnit.SECONDS.sleep(3);}
-        catch (InterruptedException e)
-            {
-                            e.printStackTrace();
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         button.click();
 
 //Клик по кнопке "Создать"
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        WebElement role4 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/section/section/main/div/div/div/div[1]/span/div/div/a/button")));
-        role4.click();
+        WebElement create = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/section/section/main/div/div/div/div[1]/span/div/div/a/button")));
+        create.click();
+
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebElement save = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/section/section/main/div/div/div/div[2]/div/div/div/ul/li/span/div/div/button")));
+        save.click();
+
+        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebElement save2 = wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]")));
+        save2.click();
+
     }
 }
