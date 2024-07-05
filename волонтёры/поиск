@@ -1,0 +1,54 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
+public class Main {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Maven\\Selenium\\asd\\chromedriver.exe");
+//Подключаю ChromeDriver()
+        WebDriver driver = new ChromeDriver();
+//Отключение оповещений
+        ChromeOptions options = new ChromeOptions();
+        System.setProperty("webdriver.chrome.driver", "C:\\selenium\\actor.yaml");
+        options.addArguments("--use-fake-device-for-media-stream");
+        options.addArguments("--use-fake-ui-for-media-stream");
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+
+        driver.get("https://srv.rumyantsev.com/login");
+//задержка перед вводом значений
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+//ишу поле ввода логина и ввожу значения.
+
+        WebElement login = driver.findElement(By.cssSelector("#username"));
+        login.sendKeys("admin");
+
+
+//ищу поле ввода пароля, ввожу значения.
+        WebElement passwordField = driver.findElement(By.xpath("//*[@id=\"password\"]"));
+        passwordField.sendKeys("Kolombina25");
+
+//Клик по чек боксу "Запомнить меня"
+        WebElement ChekBox = driver.findElement(By.xpath("//*[@id=\"remember\"]"));
+        ChekBox.click();
+
+//Клик по кнопке входа
+        WebElement button = driver.findElement(By.xpath("//*[@id=\"__next\"]/section/div/div/div/div[2]/div[2]/form/button"));
+// задержка перед нажатием на кнопку входа
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        button.click();
