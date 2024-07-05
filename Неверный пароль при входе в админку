@@ -37,5 +37,6 @@ public class Main {
 //Клик по кнопке входа
         WebElement button = driver.findElement(By.xpath("//*[@id=\"__next\"]/section/div/div/div/div[2]/div[2]/form/button"));
         button.click();
+driver.quit()
     }
 }
