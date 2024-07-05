@@ -1,3 +1,5 @@
+//Бывает заходит не с первого раза
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
