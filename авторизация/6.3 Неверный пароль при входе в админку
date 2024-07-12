@@ -23,7 +23,7 @@ public class Main {
 //ишу поле ввода логина и ввожу значения.
 
         WebElement login = driver.findElement(By.cssSelector("#username"));
-        login.sendKeys("admin");
+        login.sendKeys("?");
 
 
 //ищу поле ввода пароля, ввожу значения.
