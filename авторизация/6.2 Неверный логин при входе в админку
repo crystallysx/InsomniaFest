@@ -23,12 +23,12 @@ public class Main {
 //ишу поле ввода логина и ввожу значения.
 
         WebElement login = driver.findElement(By.cssSelector("#username"));
-        login.sendKeys("amin");
+        login.sendKeys("?");
 
 
 //ищу поле ввода пароля, ввожу значения.
         WebElement passwordField = driver.findElement(By.xpath("//*[@id=\"password\"]"));
-        passwordField.sendKeys("Kolombina25");
+        passwordField.sendKeys("?");
 
 //Клик по чек боксу "Запомнить меня"
         WebElement ChekBox = driver.findElement(By.xpath("//*[@id=\"remember\"]"));
